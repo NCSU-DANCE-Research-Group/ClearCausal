@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "calculate_correlation",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "calculate_correlation.py",
+            "console": "integratedTerminal",
+            "args": "True"
+        },
+        {
+            "name": "calculate_correlation_test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "calculate_correlation_test.py",
+            "console": "integratedTerminal",
+            "args": ""
+        }
+    ]
+}

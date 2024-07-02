@@ -85,3 +85,5 @@ This script requires three folders in the same directory. Specific directories a
 | FCA (default)    | "som"            | True          |
 | MI + AD (but no Alignment) | "som"            | False         |
 | Pure (no Anomaly detection or Alignment)    | None                    | False         |
+
+We provide more details in the [wiki](https://github.com/NCSU-DANCE-Research-Group/FCA/wiki). 

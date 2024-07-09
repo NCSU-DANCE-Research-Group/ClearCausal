@@ -1,5 +1,5 @@
 # FCA
-Code for the paper: FCA: Full Stack Causal Analysis for Microservice Performance Debugging
+Welcome to the code artifact for the paper: `FCA: Full Stack Causal Analysis for Microservice Performance Debugging` which presents a new dependency-aware full-stack causal analysis system that achieves fine-grained function-level root cause localization for microservice systems.
 
 	@inproceedings{tunde2024fca,
 	title={FCA: Full Stack Causal Analysis for Microservice Performance Debugging},
@@ -53,37 +53,13 @@ On line 9, choose service or function analysis with the `function_mode` variable
 ```
 ./run_3_experiments_multi_outer.sh  
 ```
+The script outputs result folders for each bug with names that begin with `res_avg_std`. With the default settings, the `combined_correlation_results_wdependency` file contains the FCA results.  
+Each folder contain the following files:
+  * `combined_correlation_results_wdependency` - Results with dependency filtering   
+  * `combined_correlation_results_wnamespace`  - Results with namespace filtering  
+  * `combined_correlation_results_pure` - Results without filtering  
+The corresponding files that contain the word 'all' include the results for each repetition of the experiment.  
 
-
-# Alternatively, run with new data 
-Alternatively, run FCA with data from your cluster, you may use:
-`./collect_multiple_runs.sh`
-
-### Collect new data
-`./collect_multiple_runs.sh`
-Be sure to change what script you would like to use to collect the new data.
-
-### Run one experiment
-`./run_1_experiment.sh`
-This script requires a `data` folder in the same directory.
-
-### Run three experiments for a specific bug
-`./run_3_experiments.sh`
-This script requires three folders in the same directory. Specific directories are listed in the script. Be sure to change the `dates`, `bugid`, and `folder` variables. It should output a new `res_avg_std_` folder.
-
-### Change to a different analysis mode
-#### Change to root cause service/function analysis mode
-`ROOT_CAUSE_FUNCTION_ANALYSIS` in the `settings.py`:  
-`True`: root cause function analysis.  
-`False`: root cause service analysis.
-
-### Change to FCA mode (default) / MI + Anomaly detection (but no Alignment) / the pure mode (no Anomaly detection or Alignment)
-`ANOMALY_DETECTION_MODEL` and `ALIGN_ANOMALY` in the `calculate_correlation.py`
-
-|         | ANOMALY_DETECTION_MODEL | ALIGN_ANOMALY |
-|---------|-------------------------|---------------|
-| FCA (default)    | "som"            | True          |
-| MI + AD (but no Alignment) | "som"            | False         |
-| Pure (no Anomaly detection or Alignment)    | None                    | False         |
-
-We provide more details in the [wiki](https://github.com/NCSU-DANCE-Research-Group/FCA/wiki). 
+  
+# Additional Options
+We provide more details in the [wiki](https://github.com/NCSU-DANCE-Research-Group/FCA/wiki), including steps to customize the artifact for running alternative approaches or new data. 

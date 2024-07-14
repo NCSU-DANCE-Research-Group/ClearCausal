@@ -28,6 +28,5 @@ do
     sed -i "${setting_line_function_mode}s/.*/ROOT_CAUSE_FUNCTION_ANALYSIS = $function_mode/" setting.py
 
     # Run experiment for bug_id
-    ./run_3_experiments_multi.sh "$bug_id" "$task_name"   
-    echo "run_3_experiments_multi.sh $bug_id $task_name"
+    ./run_3_experiments_multi.sh "$bug_id" "$task_name"
 done

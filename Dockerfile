@@ -34,9 +34,5 @@ RUN poetry install
 # Set the default shell to bash
 SHELL ["/bin/bash", "-c"]
 
-# Activate the virtual environment
-CMD ["poetry", "shell"]
-
-# Optionally, you can add an entry point to run a specific command
-# For example, if you have a main.py file, you can run it like this:
-# CMD ["poetry", "run", "python", "main.py"]
+# Activate the virtual environment and run a command
+CMD ["/bin/bash", "-c", "source $(poetry env info --path)/bin/activate && exec bash"]

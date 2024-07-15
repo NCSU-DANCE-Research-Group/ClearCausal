@@ -31,6 +31,9 @@ COPY . /app
 # Install the dependencies using Poetry
 RUN poetry install
 
+# Set the default shell to bash
+SHELL ["/bin/bash", "-c"]
+
 # Activate the virtual environment
 CMD ["poetry", "shell"]
 

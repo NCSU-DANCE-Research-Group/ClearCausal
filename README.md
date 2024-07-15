@@ -16,7 +16,7 @@ To run the paper demo, download and unzip the data from [Zenodo](https://zenodo.
 The dataset is separated by bug ID referenced in the paper.  
 For instance, you may download B1.zip and unzip like so: `unzip B1.zip`
 
-### 2. Create a virtual environment with the needed libraries (using req.txt)
+### 2-A. Create a virtual environment with the needed libraries (using req.txt)
 Check your python3 version (e.g. python3.8)  
 ```  
 python3 -m pip --version  
@@ -30,9 +30,20 @@ python3 -m venv env
 source env/bin/activate && \  
 python3 -m pip install -r req.txt  
 ```
-  
-### Alternatively, find our docker container and enter the container instance  
-(steps coming soon)  
+
+### 2-B. Alternatively, use `Poetry` to install the dependencies (Python >= 3.10, using pyproject.toml)
+#### 2-B-1. Install Poetry with the [official installer](https://python-poetry.org/docs/#installing-with-the-official-installer)
+```shell
+curl -sSL https://install.python-poetry.org | python3 -
+```
+#### 2-B-2. Install the dependencies and enter the python environment
+```shell
+poetry install
+poetry shell
+```
+
+### 2-C. Alternatively, find our docker container and enter the container instance  
+(steps coming soon) 
 
 ### 3. Modify the run script
 We provide a script to run the experiments automatically: `./run_3_experiments_multi_outer.sh`  

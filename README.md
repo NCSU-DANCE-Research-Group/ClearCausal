@@ -43,8 +43,15 @@ poetry shell
 ```
 
 ### 2-C. Alternatively, find our docker container and enter the container instance  
-(steps coming soon) 
+#### 2-C-1 Install Docker for your [platform](https://docs.docker.com/engine/install/)
+#### 2-C-2 Build the Docker Image and Run
+```shell
+docker build -t fca .
+docker run -it -v ~/Downloads:/app/Downloads fca
+```
 
+- `-v ~/Downloads:/app/Downloads`: Binds the `~/Downloads` directory from your local machine to the `/app/Downloads` directory inside the container. You can modify the location as needed.   
+  
 ### 3. Modify the run script
 We provide a script to run the experiments automatically: `./run_3_experiments_multi_outer.sh`  
 ```

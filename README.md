@@ -1,8 +1,8 @@
-# FCA
-Welcome to the code artifact for the paper: `FCA: Full Stack Causal Analysis for Microservice Performance Debugging` which presents a new dependency-aware full-stack causal analysis system that achieves fine-grained function-level root cause localization for microservice systems.
+# ClearCausal
+Welcome to the code artifact for the paper: `ClearCausal: Cross Layer Causal Analysis for Automatic Microservice Performance Debugging` which presents a new dependency-aware cross-layer causal analysis system that achieves fine-grained function-level root cause localization for microservice systems.
 
-	@inproceedings{tunde2024fca,
-	title={FCA: Full Stack Causal Analysis for Microservice Performance Debugging},
+	@inproceedings{tunde2024clearcausal,
+	title={ClearCausal: Cross Layer Causal Analysis for Automatic Microservice Performance Debugging},
 	author={Tunde-Onadele, Olufogorehan and Qin, Feiran and Gu, Xiaohui and Lin, Yuhang},
 	booktitle={2024 IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)},
 	year={2024},
@@ -46,8 +46,8 @@ poetry shell
 #### 2-C-1 Install Docker for your [platform](https://docs.docker.com/engine/install/)
 #### 2-C-2 Build the Docker Image and Run
 ```shell
-docker build -t fca .
-docker run -it -v ~/Downloads:/app/Downloads fca
+docker build -t clearcausal .
+docker run -it -v ~/Downloads:/app/Downloads clearcausal
 ```
 
 - `-v ~/Downloads:/app/Downloads`: Binds the `~/Downloads` directory from your local machine to the `/app/Downloads` directory inside the container. You can modify the location as needed.   
@@ -71,7 +71,7 @@ On line 9, choose service or function analysis with the `function_mode` variable
 ```
 ./run_3_experiments_multi_outer.sh  
 ```
-The script outputs result folders for each bug with names that begin with `res_avg_std`. With the default settings, the `combined_correlation_results_wdependency` file contains the FCA results.  
+The script outputs result folders for each bug with names that begin with `res_avg_std`. With the default settings, the `combined_correlation_results_wdependency` file contains the ClearCausal results.  
 Each folder contain the following files:
   * `combined_correlation_results_wdependency` - Results with dependency filtering   
   * `combined_correlation_results_wnamespace`  - Results with namespace filtering  
@@ -80,4 +80,4 @@ The corresponding files that contain the word 'all' include the results for each
 
   
 # Additional Options
-We provide more details in the [wiki](https://github.com/NCSU-DANCE-Research-Group/FCA/wiki), including steps to customize the artifact for running alternative approaches or new data. 
+We provide more details in the [wiki](https://github.com/NCSU-DANCE-Research-Group/ClearCausal/wiki), including steps to customize the artifact for running alternative approaches or new data. 

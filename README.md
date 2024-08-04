@@ -33,7 +33,7 @@ bash download_all_and_extract.sh
 ```
 
 #### Manual Download
-Download and unzip the dataset from [Zenodo](https://zenodo.org/uploads/12602272?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjgxYzIzNTM0LWQ0MzItNDAzOC1hNmZhLWY3OTAzZDNlOWMxNiIsImRhdGEiOnt9LCJyYW5kb20iOiIwZjZhMmRmMGYzZGQzYWJlNjQxODg0OTM1NmQ4MzYwOSJ9.PCbxw2l6IWIoETIkZteCqhtXObniw8yyxNWH8A5xY6RAq-JTD9UlzoZXKc-gx_l5qxus97St47GgfmNQNwCStA).
+Download and unzip the dataset from [Zenodo](https://zenodo.org/records/13208928).
 
 Example for B1.zip:
 ```shell

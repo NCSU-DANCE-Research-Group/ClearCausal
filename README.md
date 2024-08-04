@@ -11,72 +11,81 @@ Welcome to the code artifact for the paper: `ClearCausal: Cross Layer Causal Ana
 
 # Getting Started
 Run the paper demo
-### 1. Collect data
-To run the paper demo, download and unzip the data from [Zenodo](https://zenodo.org/uploads/12602272?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjgxYzIzNTM0LWQ0MzItNDAzOC1hNmZhLWY3OTAzZDNlOWMxNiIsImRhdGEiOnt9LCJyYW5kb20iOiIwZjZhMmRmMGYzZGQzYWJlNjQxODg0OTM1NmQ4MzYwOSJ9.PCbxw2l6IWIoETIkZteCqhtXObniw8yyxNWH8A5xY6RAq-JTD9UlzoZXKc-gx_l5qxus97St47GgfmNQNwCStA)
-The dataset is separated by bug ID referenced in the paper.  
-For instance, you may download B1.zip and unzip like so: `unzip B1.zip`
+## 1. Prepare the Environment
 
-### 2-A. Create a virtual environment with the needed libraries (using req.txt)
-Check your python3 version (e.g. python3.8)  
-```  
-python3 -m pip --version  
-```  
-```  
-sudo apt install python3.8-venv && \  
-python3 -m pip install --user virtualenv && \  
-python3 -m venv env  
-```  
-```  
-source env/bin/activate && \  
-python3 -m pip install -r req.txt  
-```
+### 1-1. Install Docker
+Install Docker for your [platform](https://docs.docker.com/engine/install/).
 
-### 2-B. Alternatively, use `Poetry` to install the dependencies (Python >= 3.10, using pyproject.toml)
-#### 2-B-1. Install Poetry with the [official installer](https://python-poetry.org/docs/#installing-with-the-official-installer)
+### 1-2. Build and Run the Docker Image
 ```shell
-curl -sSL https://install.python-poetry.org | python3 -
-```
-#### 2-B-2. Install the dependencies and enter the python environment
-```shell
-poetry install
+docker build -t clearcausal .
+docker run -it clearcausal
 poetry shell
 ```
 
-### 2-C. Alternatively, find our docker container and enter the container instance  
-#### 2-C-1 Install Docker for your [platform](https://docs.docker.com/engine/install/)
-#### 2-C-2 Build the Docker Image and Run
+### 1-3. Prepare the Dataset
+Ensure you have enough space (~2GB).
+
+#### Automated Download
 ```shell
-docker build -t clearcausal .
-docker run -it -v ~/Downloads:/app/Downloads clearcausal
+chmod +x download_all_and_extract.sh
+bash download_all_and_extract.sh
 ```
 
-- `-v ~/Downloads:/app/Downloads`: Binds the `~/Downloads` directory from your local machine to the `/app/Downloads` directory inside the container. You can modify the location as needed.   
-  
-### 3. Modify the run script
-We provide a script to run the experiments automatically: `./run_3_experiments_multi_outer.sh`  
-```
-vi run_3_experiments_multi_outer.sh  
-```
-#### 3-1. Choose bug IDs to include in the demo. 
-Select the bugs whose data you have downloaded as described above.  
-In the parenthesis on line 4, provide a space-separated list of bug IDs like so:  
-`bug_ids=("1" "2")`  
-#### 3-2. Choose the root cause analysis mode  
-`True`: root cause function analysis.  
-`False`: root cause service analysis.  
-On line 9, choose service or function analysis with the `function_mode` variable like so:  
-`function_mode = "False"`
+#### Manual Download
+Download and unzip the dataset from [Zenodo](https://zenodo.org/uploads/12602272?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjgxYzIzNTM0LWQ0MzItNDAzOC1hNmZhLWY3OTAzZDNlOWMxNiIsImRhdGEiOnt9LCJyYW5kb20iOiIwZjZhMmRmMGYzZGQzYWJlNjQxODg0OTM1NmQ4MzYwOSJ9.PCbxw2l6IWIoETIkZteCqhtXObniw8yyxNWH8A5xY6RAq-JTD9UlzoZXKc-gx_l5qxus97St47GgfmNQNwCStA).
 
-### 4. Run the script
+Example for B1.zip:
+```shell
+unzip B1.zip
+```  
+After the unzip, the bug file folder contents (e.g data_B1_21/) should be in the ClearCausal root directory.  
+
+<!-- #### Create a Virtual Environment
+Check your Python version (e.g., python3.8).
+```shell
+python3 -m pip --version
 ```
-./run_3_experiments_multi_outer.sh  
+Install dependencies:
+```shell
+sudo apt install python3.8-venv
+python3 -m pip install --user virtualenv
+python3 -m venv env
+source env/bin/activate
+python3 -m pip install -r req.txt
 ```
-The script outputs result folders for each bug with names that begin with `res_avg_std`. With the default settings, the `combined_correlation_results_wdependency` file contains the ClearCausal results.  
-Each folder contain the following files:
-  * `combined_correlation_results_wdependency` - Results with dependency filtering   
-  * `combined_correlation_results_wnamespace`  - Results with namespace filtering  
-  * `combined_correlation_results_pure` - Results without filtering  
-The corresponding files that contain the word 'all' include the results for each repetition of the experiment.  
+
+Alternatively, use `poetry`:
+```shell
+curl -sSL https://install.python-poetry.org | python3 -
+poetry install
+poetry shell
+``` -->
+
+## 2. Modify the Run Script
+The provided script runs experiments automatically: `./run_3_experiments_multi_outer.sh`.
+
+### 2-1. Choose Bug IDs
+Edit the script to select the bugs whose data you have downloaded.
+```shell
+vim run_3_experiments_multi_outer.sh
+```  
+On line 4, provide a space-separated list of bug IDs, e.g.:  
+```
+bug_ids=("1" "2")
+```
+
+### 2-2. Choose Root Cause Analysis Mode
+Select the analysis mode (`True` for function analysis, `False` for service analysis). On line 9, set the `function_mode` variable:
+```shell
+function_mode="False"
+```
+
+## 3. Run the Script
+```shell
+./run_3_experiments_multi_outer.sh
+```
+The script generates result folders for each bug, prefixed with `res_avg_std`. By default, the `combined_correlation_results_wdependency` file contains the ClearCausal results.  
 
   
 # Additional Options

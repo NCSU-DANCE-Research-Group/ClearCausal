@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fca-init"
+name = "cc-init"
 version = "0.1.0"
 description = ""
 authors = ["canarypwn"]
@@ -21,11 +21,11 @@ sklearn-som = "^1.1.0"
 kneed = "^0.8.5"
 openpyxl = "^3.1.2"
 trash = "^0.1.0"
+trash-cli = "^0.24.5.26"
 
 [tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-
 

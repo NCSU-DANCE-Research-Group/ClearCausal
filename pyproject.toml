@@ -3,6 +3,7 @@ name = "fca-init"
 version = "0.1.0"
 description = ""
 authors = ["canarypwn"]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -19,6 +20,7 @@ fastdtw = "^0.3.4"
 sklearn-som = "^1.1.0"
 kneed = "^0.8.5"
 openpyxl = "^3.1.2"
+trash = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
 

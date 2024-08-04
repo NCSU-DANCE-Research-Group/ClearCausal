@@ -14,6 +14,9 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libhdf5-dev \
     vim \
+    nano \
+    unzip \
+    wget \
     && apt-get clean
 
 # Install Poetry
